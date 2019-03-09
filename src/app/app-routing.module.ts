@@ -15,7 +15,8 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'kike', loadChildren: './kike/kike.module#KikePageModule' }
+  { path: 'kike', loadChildren: './kike/kike.module#KikePageModule' },
+  { path: 'david', loadChildren: './david/david.module#DavidPageModule' }
 
 ];
 
