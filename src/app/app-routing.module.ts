@@ -14,7 +14,9 @@ const routes: Routes = [
   {
     path: 'inicio',
     loadChildren: './pages/inicio/inicio.module#InicioPageModule'
-  }
+  },
+  { path: 'detalles-moteles/:index', loadChildren: './pages/detalles-moteles/detalles-moteles.module#DetallesMotelesPageModule' }
+
 ];
 
 @NgModule({
