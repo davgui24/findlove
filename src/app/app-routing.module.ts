@@ -1,19 +1,19 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "list",
-    pathMatch: "full"
+    path: '',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
   },
   {
-    path: "home",
-    loadChildren: "./home/home.module#HomePageModule"
+    path: 'favoritos',
+    loadChildren: './pages/favoritos/favoritos.module#FavoritosPageModule'
   },
   {
-    path: "list",
-    loadChildren: "./list/list.module#ListPageModule"
+    path: 'inicio',
+    loadChildren: './pages/inicio/inicio.module#InicioPageModule'
   }
 ];
 
