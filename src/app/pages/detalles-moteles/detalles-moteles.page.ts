@@ -11,7 +11,7 @@ import { NavController } from '@ionic/angular';
 export class DetallesMotelesPage implements OnInit {
   index: number;
 
-  constructor(private activatedRoute: ActivatedRoute, private motelesService: MotelService, private navCtrl: NavController ) {
+  constructor(private activatedRoute: ActivatedRoute, public motelesService: MotelService, private navCtrl: NavController ) {
     this.index = Number(this.activatedRoute.snapshot.paramMap.get('index'));
    }
 
