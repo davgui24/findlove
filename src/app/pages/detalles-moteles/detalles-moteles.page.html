@@ -1,9 +1,11 @@
 <ion-header>
     <ion-toolbar color="primary">
-        <ion-button color="primary" ion-button icon-left small (click)="atras()">
+        <ion-button color="primary" slot="start" shape="round" (click)="atras()">
             <ion-icon name="arrow-round-back"></ion-icon>
         </ion-button>
-        <ion-title>{{ motelesService.moteles[index].nombre}}</ion-title>
+        <ion-title>
+            <ion-icon name="person"></ion-icon>
+        </ion-title>
     </ion-toolbar>
 </ion-header>
 
