@@ -1,6 +1,8 @@
 {
   "name": "findlove",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "a09230d9"
 }
