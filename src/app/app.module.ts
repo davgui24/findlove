@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { UsuarioProvider } from './service/usuario/UsuarioProvider';
+
 
 
 @NgModule({
@@ -30,7 +30,6 @@ import { UsuarioProvider } from './service/usuario/UsuarioProvider';
   providers: [
     StatusBar,
     SplashScreen,
-    UsuarioProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

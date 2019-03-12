@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
     slidesPerView: 3.5
   };
 
-  constructor() {
+  constructor(public navCtrl: NavController) {
    }
 
   ngOnInit() {
@@ -82,6 +82,10 @@ export class LoginPage implements OnInit {
     this.slides.lockSwipes(false);
     this.slides.slideTo(0);
     this.slides.lockSwipes(true);
+  }
+
+  loginUser() {
+    
   }
 
 }
