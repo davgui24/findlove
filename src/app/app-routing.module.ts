@@ -16,7 +16,8 @@ const routes: Routes = [
     loadChildren: './pages/inicio/inicio.module#InicioPageModule'
   },
   { path: 'detalles-moteles/:index', loadChildren: './pages/detalles-moteles/detalles-moteles.module#DetallesMotelesPageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' }
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' }
+
 
 ];
 
