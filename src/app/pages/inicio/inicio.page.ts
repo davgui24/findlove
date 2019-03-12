@@ -20,8 +20,7 @@ export class InicioPage implements OnInit {
   }
 
   mostrarDetalle(index: number) {
-    console.log('Este es el motel #' + index);
-    this.navCtrl.navigateBack('/detalles-moteles/' + index);
+   this.navCtrl.navigateBack('/detalles-moteles/' + index);
   }
 
 }
