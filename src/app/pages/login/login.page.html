@@ -1,7 +1,7 @@
 <ion-content>
 
 
-    <ion-slides class="mainSlide">
+    <ion-slides class="mainSlide" #slidePrincipal>
 
         <ion-slide>
 
@@ -38,12 +38,12 @@
                             <ion-button type="submit" color="tertiary" shape="round">
                                 Login
                             </ion-button><br>
-                            <a shape="round" expand="full" size="small" fill="outline" color="tertiary">
+                            <a shape="round" (click)="mostrarRegistro()" expand="full" size="small" fill="outline" color="tertiary">
                                 <small>Registrarme</small>
                             </a><br><br>
 
-                            <ion-icon title="facebook" name="logo-facebook"></ion-icon>
-                            <ion-icon title="google" name="logo-google"></ion-icon>
+                            <ion-icon title="Facebook" name="logo-facebook"></ion-icon>
+                            <ion-icon title="Google" name="logo-google"></ion-icon>
 
                         </ion-col>
                     </ion-row>
@@ -68,9 +68,9 @@
 
                 <ion-row>
                     <ion-col>
-                        <ion-slides>
+                        <ion-slides [options]="avatarSlide">
                             <ion-slide *ngFor="let avatar of avatars">
-                                <ion-img class="pick-avatar" src="/assets/avatars/{{avatar.img}}"></ion-img>
+                                <ion-img class="pick-avatar" src="/assets/avatars/{{avatar.img}}" [ngClass]="{'pick-avatar-seleccionado': avatar.seleccionado }" (click)="seleccionarAvatar(avatar)"></ion-img>
                             </ion-slide>
                         </ion-slides>
                     </ion-col>
@@ -105,7 +105,10 @@
                         <ion-col>
                             <ion-button type="submit" color="tertiary" shape="round">
                                 Crear usuario
-                            </ion-button>
+                            </ion-button><br>
+                            <a shape="round" (click)="mostrarLogin()" expand="full" size="small" fill="outline" color="tertiary">
+                                <small>Login</small>
+                            </a>
                         </ion-col>
 
 
@@ -123,17 +126,3 @@
 
 
 </ion-content>
-
-
-<ion-footer no-border>
-    <ion-toolbar>
-
-        <ion-row>
-
-
-        </ion-row>
-
-
-
-    </ion-toolbar>
-</ion-footer>
