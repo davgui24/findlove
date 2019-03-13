@@ -12,8 +12,18 @@ import { AppRoutingModule } from './app-routing.module';
 // firebase
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
-
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDFSr5j8igqQ7CCQZxmlhCdODSDR4XZhVk",
+  authDomain: "findlove-f6cc5.firebaseapp.com",
+  databaseURL: "https://findlove-f6cc5.firebaseio.com",
+  projectId: "findlove-f6cc5",
+  storageBucket: "findlove-f6cc5.appspot.com",
+  messagingSenderId: "543318255690"
+};
 
 
 
@@ -22,14 +32,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   entryComponents: [],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
