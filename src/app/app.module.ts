@@ -19,23 +19,12 @@ import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyDFSr5j8igqQ7CCQZxmlhCdODSDR4XZhVk",
-  authDomain: "findlove-f6cc5.firebaseapp.com",
-  databaseURL: "https://findlove-f6cc5.firebaseio.com",
-  projectId: "findlove-f6cc5",
-  storageBucket: "findlove-f6cc5.appspot.com",
-  messagingSenderId: "543318255690"
-};
-
-
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig, environment.firebase),
+    AngularFireModule.initializeApp( environment.firebase),
     AngularFirestoreModule,
     IonicModule.forRoot(),
     AppRoutingModule,

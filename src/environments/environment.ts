@@ -12,7 +12,6 @@ export const environment = {
   storageBucket: 'findlove-f6cc5.appspot.com',
   messagingSenderId: '543318255690'
   }
-
 };
 
 /*
