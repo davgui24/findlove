@@ -8,14 +8,10 @@ import { UsuarioService } from 'src/app/service/usuario/usuario.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  index: number;
-  usuario: any;
-  constructor(private activatedRoute: ActivatedRoute, private userServices: UsuarioService) { 
-    // this.index = Number(this.activatedRoute.snapshot.paramMap.get('indexUser'));
-    // this.userServices.getUsuarios().then(data => {
-    //   this.usuario = Object(data)[this.index]
-    //   console.log('Este es usuaio' + this.usuario);
-    // })
+  
+  constructor(private activatedRoute: ActivatedRoute) { 
+    
+   
 
     
   }
