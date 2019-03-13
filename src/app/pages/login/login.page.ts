@@ -96,8 +96,7 @@ export class LoginPage implements OnInit {
     let user = {
       email: fRegistro.value.email,
       nombre: fRegistro.value.nombre,
-<<<<<<< HEAD
-      password: fRegistro.value.password
+      password: bcrypt.hashSync(fRegistro.value.password, 10)
     }
 
     this.userServices.getUsuarios().then(data => {
@@ -122,17 +121,6 @@ export class LoginPage implements OnInit {
            console.log('Falló la búsqueda');
          }
     });
-
-  
-=======
-      password: bcrypt.hashSync (fRegistro.value.password, 10),
-    };
-
-    this.userServices.crearUsuario(user);
-     this.slides.lockSwipes(false);
-    this.slides.slideTo(0);
-    this.slides.lockSwipes(true);
->>>>>>> 6a11b49a0fb7662b805179af60554f21fb580b63
   }
 
   mostrarRegistro() {
