@@ -51,6 +51,7 @@ export class LoginPage implements OnInit {
     }
  
     this.userServices.crearUsuario(user);
+    this.slides.slideTo(0);
   }
 
   mostrarRegistro() {
