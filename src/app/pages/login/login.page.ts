@@ -30,8 +30,17 @@ export class LoginPage implements OnInit {
   }
 
   login(fLogin: NgForm) {
+    this.userServices.getUsuarios().then(data => {
+      for (let i = 0; i < Object(data).length; i++){
+        if (fLogin.value.email == Object(data)[i].email && fLogin.value.password == Object(data)[i].password ){
+          this.navCtrl.navigateBack('/inicio/' + i);
+          return;
+        }else{
+          console.log('No esta logueado');
+        }
+      }
+    })
 
-    console.log(fLogin.valid);
   }
 
   registro(fRegistro: NgForm) {

@@ -11,7 +11,7 @@ export class UsuarioService {
   
   crearUsuario(usuario) {
     const res = usuario.email.split(".");
-    this.afDB.database.ref('/usuarios/' + res[0]).set(usuario);
+    this.afDB.database.ref('/usuarios/' + res[0] + new Date().getTime()).set(usuario);
   }
 
   getUsuarios() {

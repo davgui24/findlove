@@ -12,11 +12,12 @@ const routes: Routes = [
     loadChildren: './pages/favoritos/favoritos.module#FavoritosPageModule'
   },
   {
-    path: 'inicio',
+    path: 'inicio/:indexUser',
     loadChildren: './pages/inicio/inicio.module#InicioPageModule'
   },
   { path: 'detalles-moteles/:index', loadChildren: './pages/detalles-moteles/detalles-moteles.module#DetallesMotelesPageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' }
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' }
 
 
 ];

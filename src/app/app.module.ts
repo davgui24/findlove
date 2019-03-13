@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDFSr5j8igqQ7CCQZxmlhCdODSDR4XZhVk",
   authDomain: "findlove-f6cc5.firebaseapp.com",
@@ -25,10 +26,6 @@ export const firebaseConfig = {
   storageBucket: "findlove-f6cc5.appspot.com",
   messagingSenderId: "543318255690"
 };
-
-// import { environment } from "src/environments/environment";
-// import { AngularFireModule } from "@angular/fire";
-// import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 
 @NgModule({
