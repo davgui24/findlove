@@ -49,11 +49,31 @@ export class LoginPage implements OnInit {
       nombre: fRegistro.value.nombre,
       password: fRegistro.value.password
     }
- 
-    this.userServices.crearUsuario(user);
-     this.slides.lockSwipes(false);
-    this.slides.slideTo(0);
-    this.slides.lockSwipes(true);
+
+    this.userServices.getUsuarios().then(data => {
+         if(data){
+           let encontrado: boolean = false;
+           Object(data).forEach(element => {
+             if (user.email ==  element.email){
+                   encontrado = true;
+             }
+           });
+
+           if(!encontrado){
+             this.userServices.crearUsuario(user);
+             this.slides.lockSwipes(false);
+             this.slides.slideTo(0);
+             this.slides.lockSwipes(true);
+             return;
+           }else{
+             console.log('Este usuario ya existe');
+           }
+         }else{
+           console.log('Falló la búsqueda');
+         }
+    });
+
+  
   }
 
   mostrarRegistro() {
