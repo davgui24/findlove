@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyD1W5H36-xhXLZNzfsHNdT1h2CTiL0QqqI',
-    authDomain: 'finedlove.firebaseapp.com',
-    databaseURL: 'https://finedlove.firebaseio.com',
-    projectId: 'finedlove',
-    storageBucket: 'finedlove.appspot.com',
-    messagingSenderId: '1005575539176'
+    apiKey: 'AIzaSyDFSr5j8igqQ7CCQZxmlhCdODSDR4XZhVk',
+  authDomain: 'findlove-f6cc5.firebaseapp.com',
+  databaseURL: 'https://findlove-f6cc5.firebaseio.com',
+  projectId: 'findlove-f6cc5',
+  storageBucket: 'findlove-f6cc5.appspot.com',
+  messagingSenderId: '543318255690'
   }
 
 };
