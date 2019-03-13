@@ -20,7 +20,7 @@ export class DetallesMotelesPage implements OnInit {
 
 
   atras(){
-    this.navCtrl.navigateBack('/inicio');
+    this.navCtrl.navigateBack('/inicio/');
   }
 
 }
