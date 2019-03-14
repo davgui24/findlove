@@ -76,7 +76,6 @@ export class LoginPage implements OnInit {
 
   registro(fRegistro: NgForm) {
     this.seleccionarAvatar(this.avatar);
-    console.log(this.seleccionarAvatar(this.avatar));
     let user;
     if (!this.seleccionarAvatar(this.avatar).seleccionado) {
       user = {
@@ -99,11 +98,16 @@ export class LoginPage implements OnInit {
     this.userServices.getUsuarios().then(data => {
       if (data) {
         let encontrado: boolean = false;
-        Object(data).forEach(element => {
-          if (user.email == element.email) {
-            encontrado = true;
-          }
-        });
+        if (user.email == "" || user.password == "" || user.nombre == '') {
+          console.log("No debe haber campos vacíos");
+          return;
+        }else{
+          Object(data).forEach(element => {
+            if (user.email == element.email) {
+              encontrado = true;
+            }
+          });
+        }
 
         if (!encontrado) {
           this.userServices.crearUsuario(user);
