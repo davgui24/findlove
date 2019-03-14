@@ -74,16 +74,22 @@ export class LoginPage implements OnInit {
   login(fLogin: NgForm) {
     this.userServices.getUsuarios().then(data => {
       for (let i = 0; i < Object(data).length; i++){
-        if (fLogin.value.email == Object(data)[i].email){
+        if (fLogin.value.email == Object(data)[i].email && fLogin.value.password == Object(data)[i].password){
+          let usuario = JSON.stringify(Object(data)[i]);
+          this.navCtrl.navigateBack('/inicio/' + usuario);
+          return;
 
-            this.pass2 = Object(data)[i].password;
-            this.pass = fLogin.value.password;
-            bcrypt.hashSync (this.pass, 10);
+          // LA PARTE DE LA ENCRIPTACION LA HACEMOS DESPUES
+// =====================================================================
+//             this.pass2 = Object(data)[i].password;
+//             this.pass = fLogin.value.password;
+//             bcrypt.hashSync (this.pass, 10);
 
-            if (bcrypt.compareSync(this.pass, this.pass2)){
-              this.navCtrl.navigateBack('/inicio/' + i);
-              return;
-            }
+//             if (bcrypt.compareSync(this.pass, this.pass2)){
+//               this.navCtrl.navigateBack('/inicio/' + Object(data)[i]);
+//               return;
+//             }
+// =====================================================================
         } else {
           console.log('No esta logueado');
         }
