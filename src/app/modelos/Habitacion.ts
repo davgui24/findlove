@@ -1,6 +1,6 @@
-import { Motel } from "./motel";
-import { Admin } from "./admin";
-import { Reserva } from "./reserva";
+import { Motel } from './motel';
+import { Admin } from './admin';
+import { Reserva } from './reserva';
 
 export class Habitacion {
   id: number;
