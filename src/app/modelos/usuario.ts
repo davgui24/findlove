@@ -21,3 +21,4 @@ export class Usuario {
         this.pass = pass;
         this.rol = rol;
     }
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Moteles, MotelService } from 'src/app/service/motel/motel.service';
+import { MotelService } from 'src/app/service/motel/motel.service';
 import { NavController } from '@ionic/angular';
 
 @Component({

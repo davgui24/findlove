@@ -1,5 +1,5 @@
 // tslint:disable-next-line: quotemark
-import { Habitacion } from "./Habitacion";
+import { Habitacion } from './Habitacion';
 
 export class Motel {
   id: number;
