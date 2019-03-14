@@ -4,6 +4,7 @@ import { IonSlides, NavController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 
 import * as bcrypt from 'bcryptjs';
+import { AlertService } from 'src/app/service/alerts/alert.service';
 
 
 @Component({
@@ -18,8 +19,8 @@ export class LoginPage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
-    private userServices: UsuarioService
-  ) {}
+    private userServices: UsuarioService,
+    public alertCtrl: AlertService) {}
 
   @ViewChild("slidePrincipal") slides: IonSlides;
 
@@ -45,7 +46,8 @@ export class LoginPage implements OnInit {
     return this.avatar;
   }
 
-  login(fLogin: NgForm) {
+  login(fLogin: NgForm) { 
+    let logeado: boolean = true;
     this.userServices.getUsuarios().then(data => {
       for (let i = 0; i < Object(data).length; i++) {
         if (
@@ -69,9 +71,14 @@ export class LoginPage implements OnInit {
           // =====================================================================
         } else {
           console.log("No esta logueado");
+          logeado = false;
         }
       }
     });
+    if(logeado){
+      this.alertCtrl.presentAlert('No esta logueado');
+      console.log(logeado);
+    }
   }
 
   registro(fRegistro: NgForm) {
@@ -94,12 +101,12 @@ export class LoginPage implements OnInit {
       };
     }
       
-
     this.userServices.getUsuarios().then(data => {
       if (data) {
         let encontrado: boolean = false;
         if (user.email == "" || user.password == "" || user.nombre == '') {
           console.log("No debe haber campos vacíos");
+          this.alertCtrl.presentAlert('No debe haber campos vacíos');
           return;
         }else{
           Object(data).forEach(element => {
@@ -116,9 +123,11 @@ export class LoginPage implements OnInit {
           this.slides.lockSwipes(true);
           return;
         } else {
+          this.alertCtrl.presentAlert('Este usuario ya existe');
           console.log("Este usuario ya existe");
         }
       } else {
+        this.alertCtrl.presentAlert('Falló la búsqueda');
         console.log("Falló la búsqueda");
       }
     });
