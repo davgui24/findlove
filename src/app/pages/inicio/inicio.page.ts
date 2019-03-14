@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Moteles, MotelService } from 'src/app/service/motel/motel.service';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
-import { UsuarioService } from 'src/app/service/usuario/usuario.service';
+
 
 
 @Component({
@@ -19,9 +19,8 @@ export class InicioPage implements OnInit {
 
   constructor(private motelesService: MotelService, 
     private navCtrl: NavController, 
-    private activatedRoute: ActivatedRoute, 
-    private userServices: UsuarioService) {
-    this.moteles = motelesService.moteles;
+    private activatedRoute: ActivatedRoute) {
+    this.moteles = this.motelesService.moteles;
 
     this.usuario = JSON.parse(this.activatedRoute.snapshot.paramMap.get('usuarioLogueado'));
     console.log('El usaer es ', (this.usuario));

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UsuarioService } from 'src/app/service/usuario/usuario.service';
+
+
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 })
 export class HomePage implements OnInit {
   
-  constructor(private activatedRoute: ActivatedRoute) { 
+  constructor() { 
     
    
 
