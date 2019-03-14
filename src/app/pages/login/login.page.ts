@@ -89,7 +89,8 @@ export class LoginPage implements OnInit {
       user = {
         email: fRegistro.value.email,
         nombre: fRegistro.value.nombre,
-        password: bcrypt.hashSync(fRegistro.value.password, 10),
+        password: fRegistro.value.password,
+        // password: bcrypt.hashSync(fRegistro.value.password, 10),
         avatar: this.avatar.img
       };
     }
