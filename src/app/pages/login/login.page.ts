@@ -74,11 +74,11 @@ export class LoginPage implements OnInit {
           logeado = false;
         }
       }
+      if(!logeado){
+        this.alertCtrl.presentAlert('No esta logueado');
+        console.log(logeado);
+      }
     });
-    if(logeado){
-      this.alertCtrl.presentAlert('No esta logueado');
-      console.log(logeado);
-    }
   }
 
   registro(fRegistro: NgForm) {
