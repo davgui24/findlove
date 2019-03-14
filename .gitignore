@@ -33,5 +33,4 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .angulardoc.json
-package-lock.json
 cordova-typings.d.ts
