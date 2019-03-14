@@ -101,7 +101,6 @@ export class LoginPage implements OnInit {
       };
     }
       
-
     this.userServices.getUsuarios().then(data => {
       if (data) {
         let encontrado: boolean = false;
