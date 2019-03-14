@@ -1,18 +1,18 @@
-import { Motel } from './motel';
-import { Admin } from './admin';
-import { Reserva } from './reserva';
+import { Motel } from "./motel";
+import { Reserva } from "./reserva";
 
 export class Habitacion {
   id: number;
   nomenclatura: string;
-  estado: string;
-  historial: string[];
+  estado: boolean;
+  // estado true = habitacion disponible
+  historial: Reserva[];
   motel: Motel;
-  admin: Admin;
-  reserva: Reserva[];
 
-  constructor(nomenclatura: string, estado: string) {
+  constructor(nomenclatura: string, estado: boolean = true, motel: Motel) {
+    this.id = new Date().getTime();
     this.estado = estado;
     this.nomenclatura = nomenclatura;
+    this.motel = motel;
   }
 }
