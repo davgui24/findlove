@@ -4,6 +4,7 @@ import { IonSlides, NavController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 
 import * as bcrypt from 'bcryptjs';
+import { AlertService } from 'src/app/service/alerts/alert.service';
 
 
 @Component({
@@ -18,8 +19,8 @@ export class LoginPage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
-    private userServices: UsuarioService
-  ) {}
+    private userServices: UsuarioService,
+    public alertCtrl: AlertService) {}
 
   @ViewChild("slidePrincipal") slides: IonSlides;
 
@@ -115,9 +116,11 @@ export class LoginPage implements OnInit {
           this.slides.lockSwipes(true);
           return;
         } else {
+          this.alertCtrl.presentAlert('Este usuario ya existe');
           console.log("Este usuario ya existe");
         }
       } else {
+        
         console.log("Falló la búsqueda");
       }
     });
