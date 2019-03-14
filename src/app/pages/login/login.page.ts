@@ -46,7 +46,8 @@ export class LoginPage implements OnInit {
     return this.avatar;
   }
 
-  login(fLogin: NgForm) {
+  login(fLogin: NgForm) { 
+    let logeado: boolean = true;
     this.userServices.getUsuarios().then(data => {
       for (let i = 0; i < Object(data).length; i++) {
         if (
@@ -70,9 +71,14 @@ export class LoginPage implements OnInit {
           // =====================================================================
         } else {
           console.log("No esta logueado");
+          logeado = false;
         }
       }
     });
+    if(logeado){
+      this.alertCtrl.presentAlert('No esta logueado');
+      console.log(logeado);
+    }
   }
 
   registro(fRegistro: NgForm) {
@@ -101,6 +107,7 @@ export class LoginPage implements OnInit {
         let encontrado: boolean = false;
         if (user.email == "" || user.password == "" || user.nombre == '') {
           console.log("No debe haber campos vacíos");
+          this.alertCtrl.presentAlert('No debe haber campos vacíos');
           return;
         }else{
           Object(data).forEach(element => {
@@ -121,7 +128,7 @@ export class LoginPage implements OnInit {
           console.log("Este usuario ya existe");
         }
       } else {
-        
+        this.alertCtrl.presentAlert('Falló la búsqueda');
         console.log("Falló la búsqueda");
       }
     });
