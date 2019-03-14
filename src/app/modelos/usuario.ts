@@ -3,6 +3,7 @@ import { Reserva } from "./reserva";
 
 export class Usuario {
   id: number;
+  avatar: string;
   nombre: string;
   user: string;
   pass: string;
