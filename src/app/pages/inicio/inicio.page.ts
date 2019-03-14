@@ -15,6 +15,7 @@ export class InicioPage implements OnInit {
   moteles: Moteles[] = [];
   index: number;
   usuario: any;
+  usuarioYmotel: any[];
 
   constructor(private motelesService: MotelService, 
     private navCtrl: NavController, 
@@ -22,18 +23,17 @@ export class InicioPage implements OnInit {
     private userServices: UsuarioService) {
     this.moteles = motelesService.moteles;
 
-    this.index = Number(this.activatedRoute.snapshot.paramMap.get('indexUser'));
-    this.userServices.getUsuarios().then(data => {
-      this.usuario = Object(data)[this.index]
-      console.log('Este es usuaio', this.usuario);
-     })
+    this.usuario = JSON.parse(this.activatedRoute.snapshot.paramMap.get('usuarioLogueado'));
+    console.log('El usaer es ', (this.usuario));
    };
 
   ngOnInit() {
   }
 
   mostrarDetalle(index: number) {
-   this.navCtrl.navigateBack('/detalles-moteles/');
+    this.usuarioYmotel = [this.usuario, index];
+    let usuarioYmotelString = JSON.stringify(this.usuarioYmotel)
+    this.navCtrl.navigateBack('/detalles-moteles/' + usuarioYmotelString);
   }
 
 }

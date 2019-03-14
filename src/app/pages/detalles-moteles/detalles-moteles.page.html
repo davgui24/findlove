@@ -14,15 +14,15 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img [src]="motelesService.moteles[index].img">
+                <img [src]="motelesService.moteles[indexMotel].img">
             </ion-avatar>
-            <h2>{{ motelesService.moteles[index].nombre}}</h2>
+            <h2>{{ motelesService.moteles[indexMotel].nombre}}</h2>
         </ion-item>
 
-        <img [src]="motelesService.moteles[index].img">
+        <img [src]="motelesService.moteles[indexMotel].img">
 
         <ion-card-content>
-            <p>{{ motelesService.moteles[index].direccion}}</p>
+            <p>{{ motelesService.moteles[indexMotel].direccion}}</p>
         </ion-card-content>
 
         <ion-row>
@@ -46,7 +46,7 @@
         </ion-row>
         <ion-row>
             <ion-col>
-                <p>{{ motelesService.moteles[index].descripcion}}</p>
+                <p>{{ motelesService.moteles[indexMotel].descripcion}}</p>
             </ion-col>
         </ion-row>
 
