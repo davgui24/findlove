@@ -1,3 +1,4 @@
+// tslint:disable-next-line: quotemark
 import { Habitacion } from "./Habitacion";
 
 export class Motel {

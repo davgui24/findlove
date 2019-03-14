@@ -1,4 +1,4 @@
-import { Motel } from './motel';
+import { Motel } from "./motel";
 
 export class Admin {
   id: number;
@@ -10,11 +10,10 @@ export class Admin {
   fechaultimologin: Date;
   motel: Motel[];
 
-   constructor(nombre: string, user: string, pass: string, rol: string;){   
+  constructor(nombre: string, user: string, pass: string, rol: string) {
     this.nombre = nombre;
     this.user = user;
     this.pass = pass;
     this.rol = rol;
   }
 }
-
