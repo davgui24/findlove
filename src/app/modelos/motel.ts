@@ -1,5 +1,5 @@
 // tslint:disable-next-line: quotemark
-import { Habitacion } from './Habitacion';
+import { Habitacion } from "./Habitacion";
 
 export class Motel {
   id: number;
@@ -8,7 +8,7 @@ export class Motel {
   img: string[];
   numeroHabitaciones: number;
   promocion: string;
-  habitaciones: Habitacion;
+  habitaciones: Habitacion[];
 
   constructor(numeroHabitacones: number, nombre: string) {
     this.id = new Date().getTime();
