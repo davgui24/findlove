@@ -105,6 +105,7 @@ export class LoginPage implements OnInit {
     }
 
     this.userServices.getUsuarios().then(data => {
+      console.log(data);
       if (data) {
         let encontrado: boolean = false;
         if (
@@ -115,23 +116,43 @@ export class LoginPage implements OnInit {
           this.alertCtrl.presentAlert("No debe haber campos vacíos");
           return;
         } else {
-          Object(data).forEach(element => {
-            if (this.usuario.user == element.email) {
+          let usuarios: Usuario[] = [];
+          usuarios = Object(data);
+          for (let i = 0; i < usuarios.length; i++) {
+            if (this.usuario.user == usuarios[i].user) {
               encontrado = true;
+              console.log('El tipo es', this.usuario.user);
+              console.log('El tipo es', usuarios[i].user);
+              this.alertCtrl.presentAlert("Este uuario ya existe");
+              return;
             }
-          });
+          }
+          // data.forEach(element => {
+          //   if (this.usuario.user == element.email) {
+          //     encontrado = true;
+          //     console.log('El tipo es', this.usuario.user);
+          //     console.log('El tipo es', element.email);
+          //     return;
+          //   }else{
+          //     encontrado = false;
+          //     console.log("El tipo es", this.usuario.user);
+          //     console.log("El tipo es", element.email);
+          //   }
+          // });
         }
 
         if (!encontrado) {
           this.userServices.crearUsuario(this.usuario);
-          this.alertCtrl.presentAlert("El uausrio fue registrado exitósamente");
+          this.alertCtrl.presentAlert("El usuario fue registrado exitósamente");
           this.slides.lockSwipes(false);
           this.slides.slideTo(0);
           this.slides.lockSwipes(true);
+          console.log(encontrado);
           return;
         } else {
           this.alertCtrl.presentAlert("Este usuario ya existe");
           console.log("Este usuario ya existe");
+          console.log(encontrado);
         }
       } else {
         this.alertCtrl.presentAlert("Falló la búsqueda");
