@@ -25,7 +25,8 @@ export class LoginPage implements OnInit {
     private userServices: UsuarioService,
     public alertCtrl: AlertService,
     public localStorageService: LocalstorageService) {
-    this.localStorageService.cargarUltimoLogueo();
+    this.localStorageService.cargarUltimoLogueo()
+    this.localStorageService.guardarUltimoLogueo();
     }
 
   @ViewChild("slidePrincipal") slides: IonSlides;
@@ -65,14 +66,10 @@ export class LoginPage implements OnInit {
           this.usuario = Object(data)[i];
           this.localStorageService.cargarUltimoLogueo()[0] = this.usuario;
           this.localStorageService.guardarUltimoLogueo();
+          console.log(this.localStorageService.cargarUltimoLogueo()[0]);;
           this.logeado = true;
         } else {
           console.log("No esta logueado");
-          console.log(fLogin.value.email);
-          console.log(this.usuario.user);
-          console.log(fLogin.value.password);
-          console.log(this.usuario.pass);
-          console.log(Object(data).length);
         }
       }
       if (!this.logeado) {
@@ -80,7 +77,7 @@ export class LoginPage implements OnInit {
         this.alertCtrl.presentAlert("Verifique usuario y/o contraseña");
       }else{
         console.log('es', this.logeado);
-        this.navCtrl.navigateBack("/inicio/" + this.usuario);
+        this.navCtrl.navigateBack("/inicio");
         return;
       }
     });

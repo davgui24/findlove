@@ -1,25 +1,32 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LocalstorageService } from "./service/localstorage/localstorage.service";
+// import { LocalstorageService } from './service/localstorage/localstorage.service';
 
-const routes: Routes = [
+// const routes: Routes = new Pages().routes;
+
+ const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: "",
+    // redirectTo: "inicio",
+     redirectTo: (new LocalstorageService().cargarUltimoLogueo().length == 0 || new LocalstorageService().cargarUltimoLogueo()[0] == undefined) ? "login" : "inicio",
+    pathMatch: "full"
   },
   {
-    path: 'favoritos',
-    loadChildren: './pages/favoritos/favoritos.module#FavoritosPageModule'
+    path: "favoritos",
+    loadChildren: "./pages/favoritos/favoritos.module#FavoritosPageModule"
   },
   {
-    path: 'inicio/:usuarioLogueado',
-    loadChildren: './pages/inicio/inicio.module#InicioPageModule'
+    path: "inicio",
+    loadChildren: "./pages/inicio/inicio.module#InicioPageModule"
   },
-  { path: 'detalles-moteles/:usuarioYmotel', loadChildren: './pages/detalles-moteles/detalles-moteles.module#DetallesMotelesPageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' }
-
-
+  {
+    path: "detalles-moteles/:indexMotel",
+    loadChildren:
+      "./pages/detalles-moteles/detalles-moteles.module#DetallesMotelesPageModule"
+  },
+  { path: "login", loadChildren: "./pages/login/login.module#LoginPageModule" },
+  { path: "home", loadChildren: "./pages/home/home.module#HomePageModule" }
 ];
 
 @NgModule({

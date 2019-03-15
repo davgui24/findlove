@@ -1,39 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { Moteles, MotelService } from 'src/app/service/motel/motel.service';
 import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+// import { ActivatedRoute } from '@angular/router';
 import { Usuario } from 'src/app/modelos/usuario';
+import { LocalstorageService } from 'src/app/service/localstorage/localstorage.service';
 
 
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: 'inicio.page.html',
-  styleUrls: ['inicio.page.scss']
+  selector: "app-inicio",
+  templateUrl: "inicio.page.html",
+  styleUrls: ["inicio.page.scss"]
 })
 export class InicioPage implements OnInit {
-
   moteles: Moteles[] = [];
   index: number;
   usuario: Usuario;
-  usuarioYmotel: any[];
 
-  constructor(private motelesService: MotelService, 
-    private navCtrl: NavController, 
-    private activatedRoute: ActivatedRoute) {
+  constructor(
+    private motelesService: MotelService,
+    private navCtrl: NavController,
+    // private activatedRoute: ActivatedRoute,
+    private localStorage: LocalstorageService
+  ) {
     this.moteles = this.motelesService.moteles;
-
-    this.usuario = JSON.parse(this.activatedRoute.snapshot.paramMap.get('usuarioLogueado'));
-    console.log('El usaer es ', (this.usuario));
-   };
-
-  ngOnInit() {
+    this.usuario = this.localStorage.cargarUltimoLogueo()[0];
   }
 
-  mostrarDetalle(index: number) {
-    this.usuarioYmotel = [this.usuario, index];
-    let usuarioYmotelString = JSON.stringify(this.usuarioYmotel)
-    this.navCtrl.navigateBack('/detalles-moteles/' + usuarioYmotelString);
+  ngOnInit() {}
+
+  mostrarDetalle(indexMotel: number) {
+    this.navCtrl.navigateBack("/detalles-moteles/" + indexMotel);
   }
 
+  salir(){
+    this.navCtrl.navigateBack("/login");
+    this.localStorage.cargarUltimoLogueo().pop();
+    this.localStorage.guardarUltimoLogueo();
+  }
 }
