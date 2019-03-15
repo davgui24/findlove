@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { IonSlides, NavController } from '@ionic/angular';
-import { UsuarioService } from 'src/app/service/usuario/usuario.service';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { IonSlides, NavController } from "@ionic/angular";
+import { UsuarioService } from "src/app/service/usuario/usuario.service";
 
-import * as bcrypt from 'bcryptjs';
-import { AlertService } from 'src/app/service/alerts/alert.service';
-
+// import * as bcrypt from 'bcryptjs';
+import { AlertService } from "src/app/service/alerts/alert.service";
 
 @Component({
   selector: "app-login",
@@ -20,7 +19,8 @@ export class LoginPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     private userServices: UsuarioService,
-    public alertCtrl: AlertService) {}
+    public alertCtrl: AlertService
+  ) {}
 
   @ViewChild("slidePrincipal") slides: IonSlides;
 
@@ -33,12 +33,12 @@ export class LoginPage implements OnInit {
   }
 
   seleccionarAvatar(avatar) {
-    if(!avatar){
+    if (!avatar) {
       this.avatar = {
         img: "av-1.png",
         seleccionado: true
-      }
-    }else{
+      };
+    } else {
       this.avatar = avatar;
       this.avatars.forEach(av => (av.seleccionado = false));
       avatar.seleccionado = true;
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
     return this.avatar;
   }
 
-  login(fLogin: NgForm) { 
+  login(fLogin: NgForm) {
     let logeado: boolean = true;
     this.userServices.getUsuarios().then(data => {
       for (let i = 0; i < Object(data).length; i++) {
@@ -74,8 +74,8 @@ export class LoginPage implements OnInit {
           logeado = false;
         }
       }
-      if(!logeado){
-        this.alertCtrl.presentAlert('No esta logueado');
+      if (!logeado) {
+        this.alertCtrl.presentAlert("No esta logueado");
         console.log(logeado);
       }
     });
@@ -89,7 +89,7 @@ export class LoginPage implements OnInit {
         email: fRegistro.value.email,
         nombre: fRegistro.value.nombre,
         password: bcrypt.hashSync(fRegistro.value.password, 10),
-        avatar: ''
+        avatar: ""
       };
     } else {
       user = {
@@ -100,15 +100,15 @@ export class LoginPage implements OnInit {
         avatar: this.avatar.img
       };
     }
-      
+
     this.userServices.getUsuarios().then(data => {
       if (data) {
         let encontrado: boolean = false;
-        if (user.email == "" || user.password == "" || user.nombre == '') {
+        if (user.email == "" || user.password == "" || user.nombre == "") {
           console.log("No debe haber campos vacíos");
-          this.alertCtrl.presentAlert('No debe haber campos vacíos');
+          this.alertCtrl.presentAlert("No debe haber campos vacíos");
           return;
-        }else{
+        } else {
           Object(data).forEach(element => {
             if (user.email == element.email) {
               encontrado = true;
@@ -123,11 +123,11 @@ export class LoginPage implements OnInit {
           this.slides.lockSwipes(true);
           return;
         } else {
-          this.alertCtrl.presentAlert('Este usuario ya existe');
+          this.alertCtrl.presentAlert("Este usuario ya existe");
           console.log("Este usuario ya existe");
         }
       } else {
-        this.alertCtrl.presentAlert('Falló la búsqueda');
+        this.alertCtrl.presentAlert("Falló la búsqueda");
         console.log("Falló la búsqueda");
       }
     });
