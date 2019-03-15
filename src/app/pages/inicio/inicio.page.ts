@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Moteles, MotelService } from 'src/app/service/motel/motel.service';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { Usuario } from 'src/app/modelos/usuario';
 
 
 
@@ -14,7 +15,7 @@ export class InicioPage implements OnInit {
 
   moteles: Moteles[] = [];
   index: number;
-  usuario: any;
+  usuario: Usuario;
   usuarioYmotel: any[];
 
   constructor(private motelesService: MotelService, 

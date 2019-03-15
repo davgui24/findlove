@@ -9,7 +9,7 @@ export class Usuario {
   pass: string;
   rol: string;
   historial: Reserva[];
-  fechacreacion: Date;
+  fechacreacion: number;
   fechaultimologin: Date;
   motelfavorito: Motel;
   //   comentario para probar comilla simple 'comillas simples'
@@ -20,7 +20,7 @@ export class Usuario {
     this.user = user;
     this.pass = pass;
     this.avatar = avatar;
-    this.fechacreacion = new Date();
+    this.fechacreacion = new Date().getTime();
     this.historial = [];
   }
 }
