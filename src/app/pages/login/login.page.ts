@@ -127,19 +127,7 @@ export class LoginPage implements OnInit {
               return;
             }
           }
-          // data.forEach(element => {
-          //   if (this.usuario.user == element.email) {
-          //     encontrado = true;
-          //     console.log('El tipo es', this.usuario.user);
-          //     console.log('El tipo es', element.email);
-          //     return;
-          //   }else{
-          //     encontrado = false;
-          //     console.log("El tipo es", this.usuario.user);
-          //     console.log("El tipo es", element.email);
-          //   }
-          // });
-        }
+         }
 
         if (!encontrado) {
           this.userServices.crearUsuario(this.usuario);
@@ -153,6 +141,7 @@ export class LoginPage implements OnInit {
           this.alertCtrl.presentAlert("Este usuario ya existe");
           console.log("Este usuario ya existe");
           console.log(encontrado);
+          return;
         }
       } else {
         this.alertCtrl.presentAlert("Falló la búsqueda");
