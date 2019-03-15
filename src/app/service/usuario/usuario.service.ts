@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs/Observable';
+import { Usuario } from 'src/app/modelos/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ export class UsuarioService {
   items: Observable<any[]>;
   constructor(private afDB: AngularFireDatabase) { }
   
-  crearUsuario(usuario) {
-    const res = usuario.email.split(".");
+  crearUsuario(usuario: Usuario) {
+    const res = usuario.user.split(".");
     this.afDB.database.ref('/usuarios/' + res[0] + new Date().getTime()).set(usuario);
   }
 

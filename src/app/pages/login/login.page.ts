@@ -3,8 +3,9 @@ import { NgForm } from '@angular/forms';
 import { IonSlides, NavController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 
-import * as bcrypt from 'bcryptjs';
+// import * as bcrypt from 'bcryptjs';
 import { AlertService } from 'src/app/service/alerts/alert.service';
+import { Usuario } from 'src/app/modelos/usuario';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { AlertService } from 'src/app/service/alerts/alert.service';
   styleUrls: ["./login.page.scss"]
 })
 export class LoginPage implements OnInit {
+  usuario: Usuario;
   pass: string;
   pass2: any;
   avatar: any;
@@ -83,41 +85,33 @@ export class LoginPage implements OnInit {
 
   registro(fRegistro: NgForm) {
     this.seleccionarAvatar(this.avatar);
-    let user;
+    
     if (!this.seleccionarAvatar(this.avatar).seleccionado) {
-      user = {
-        email: fRegistro.value.email,
-        nombre: fRegistro.value.nombre,
-        password: bcrypt.hashSync(fRegistro.value.password, 10),
-        avatar: ''
-      };
+      this.usuario = new Usuario(fRegistro.value.nombre, fRegistro.value.email, fRegistro.value.password, '');
     } else {
-      user = {
-        email: fRegistro.value.email,
-        nombre: fRegistro.value.nombre,
-        password: fRegistro.value.password,
-        // password: bcrypt.hashSync(fRegistro.value.password, 10),
-        avatar: this.avatar.img
+      this.usuario = new Usuario(fRegistro.value.nombre, fRegistro.value.email, fRegistro.value.password, this.avatar.img);
       };
-    }
+    
+  
       
     this.userServices.getUsuarios().then(data => {
       if (data) {
         let encontrado: boolean = false;
-        if (user.email == "" || user.password == "" || user.nombre == '') {
+        if (this.usuario.user == "" || this.usuario.nombre == "" || this.usuario.pass == '') {
           console.log("No debe haber campos vacíos");
           this.alertCtrl.presentAlert('No debe haber campos vacíos');
           return;
         }else{
           Object(data).forEach(element => {
-            if (user.email == element.email) {
+            if (this.usuario.user == element.email) {
               encontrado = true;
             }
           });
         }
 
         if (!encontrado) {
-          this.userServices.crearUsuario(user);
+          this.userServices.crearUsuario(this.usuario);
+          this.alertCtrl.presentAlert('El uausrio fue registrado exitósamente');
           this.slides.lockSwipes(false);
           this.slides.slideTo(0);
           this.slides.lockSwipes(true);
@@ -132,6 +126,8 @@ export class LoginPage implements OnInit {
       }
     });
   }
+
+  
 
   mostrarRegistro() {
     this.slides.lockSwipes(false);
