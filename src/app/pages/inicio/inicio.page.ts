@@ -4,7 +4,7 @@ import { NavController } from '@ionic/angular';
 // import { ActivatedRoute } from '@angular/router';
 import { Usuario } from 'src/app/modelos/usuario';
 import { LocalstorageService } from 'src/app/service/localstorage/localstorage.service';
-import { MenuComponent } from 'src/app/components/menu/menu.component';
+//import { MenuComponent } from 'src/app/components/menu/menu.component';
 
 
 
@@ -17,7 +17,7 @@ export class InicioPage implements OnInit {
   moteles: Moteles[] = [];
   index: number;
   usuario: Usuario;
-  appPages = new MenuComponent().appPages;
+  //appPages = new MenuComponent().appPages;
 
   constructor(
     private motelesService: MotelService,
