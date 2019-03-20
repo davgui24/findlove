@@ -8,14 +8,23 @@
             <ion-icon name="power"></ion-icon>
         </ion-buttons>
         <ion-title>
-            {{usuario.nombre}}
+            {{usuario.rol}}
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="usuario.rol == 'USUARIO'">
     <ion-item *ngFor="let motel of moteles; let i = index" (click)="mostrarDetalle(i)">
         <ion-label>{{motel.nombre}}</ion-label>
         <ion-badge slot="end">{{motel.habitacionesDisponibles}}</ion-badge>
     </ion-item>
+</ion-content>
+
+<ion-content *ngIf="usuario.rol == 'ADMINISTRADOR'">
+    <ion-list>
+        <ion-item (click)="mostrarHabitaciones()">Habitaciones</ion-item>
+        <ion-item (click)="mostrarTarifas()">Tarifas</ion-item>
+        <ion-item (click)="mostrarReservas()">Reservas</ion-item>
+        <ion-item (click)="mostrarInforme()">Informe Del Mes</ion-item>
+    </ion-list>
 </ion-content>

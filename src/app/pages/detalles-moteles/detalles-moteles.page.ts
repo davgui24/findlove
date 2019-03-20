@@ -14,7 +14,7 @@ export class DetallesMotelesPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, public motelesService: MotelService, private navCtrl: NavController ) {
     this.indexMotel = Number(this.activatedRoute.snapshot.paramMap.get("indexMotel"));
-    
+    console.log(this.indexMotel);
    }
 
   ngOnInit() {

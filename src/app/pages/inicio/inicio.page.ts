@@ -27,9 +27,27 @@ export class InicioPage implements OnInit {
   ) {
     this.moteles = this.motelesService.moteles;
     this.usuario = this.localStorage.cargarUltimoLogueo()[0];
+
+    console.log(this.usuario);
   }
 
   ngOnInit() {}
+
+  mostrarHabitaciones(){
+    this.navCtrl.navigateBack('/habitaciones');
+  }
+
+  mostrarTarifas(){
+    console.log('llama la vista tarifas');
+  }
+
+  mostrarReservas(){
+    console.log('llama la vista reservas');
+  }
+
+  mostrarInforme(){
+    console.log('llama la vista informe');
+  }
 
   mostrarDetalle(indexMotel: number) {
     this.navCtrl.navigateBack("/detalles-moteles/" + indexMotel);

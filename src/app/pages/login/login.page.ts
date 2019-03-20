@@ -93,6 +93,7 @@ export class LoginPage implements OnInit {
         fRegistro.value.nombre,
         fRegistro.value.email,
         fRegistro.value.password,
+        fRegistro.value.rol,
         ""
       );
     } else {
@@ -100,7 +101,8 @@ export class LoginPage implements OnInit {
         fRegistro.value.nombre,
         fRegistro.value.email,
         fRegistro.value.password,
-        this.avatar.img
+        this.avatar.img,
+        fRegistro.value.rol  = 'USUARIO'
       );
     }
 

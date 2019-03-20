@@ -26,7 +26,8 @@ import { LocalstorageService } from "./service/localstorage/localstorage.service
       "./pages/detalles-moteles/detalles-moteles.module#DetallesMotelesPageModule"
   },
   { path: "login", loadChildren: "./pages/login/login.module#LoginPageModule" },
-  { path: "home", loadChildren: "./pages/home/home.module#HomePageModule" }
+  { path: "home", loadChildren: "./pages/home/home.module#HomePageModule" },
+  { path: 'habitaciones', loadChildren: './pages/habitaciones/habitaciones.module#HabitacionesPageModule' }
 ];
 
 @NgModule({

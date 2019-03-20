@@ -14,11 +14,12 @@ export class Usuario {
   motelfavorito: Motel;
   //   comentario para probar comilla simple 'comillas simples'
 
-  constructor(nombre: string, user: string, pass: string, avatar: string) {
+  constructor(nombre: string, user: string, pass: string, avatar: string, rol: string) {
     this.nombre = nombre;
     this.id = new Date().getTime();
     this.user = user;
     this.pass = pass;
+    this.rol = rol;
     this.avatar = avatar;
     this.fechacreacion = new Date().getTime();
     this.historial = [];
