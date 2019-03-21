@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    border-radius: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+.wrapper>* {
+    margin-bottom: 2px;
+}
+
+.red {
+    background-color: rgba(220, 83, 81, 1);
+}
+
+.green {
+    background-color: rgb(107, 165, 6);
+}
+
+.yellow {
+    background-color: rgba(235, 229, 39, 1);
+}
