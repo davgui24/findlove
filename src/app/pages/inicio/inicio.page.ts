@@ -28,7 +28,7 @@ export class InicioPage implements OnInit {
     this.moteles = this.motelesService.moteles;
     this.usuario = this.localStorage.cargarUltimoLogueo()[0];
 
-    console.log(this.usuario);
+  
   }
 
   ngOnInit() {}

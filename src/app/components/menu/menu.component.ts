@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../modelos/usuario';
+import { LocalstorageService } from 'src/app/service/localstorage/localstorage.service';
 
 
 @Component({
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+
+  usuario: Usuario;
+
   public appPages = [
     {
       title: 'Inicio',
@@ -19,7 +24,10 @@ export class MenuComponent implements OnInit {
       icon: 'favoritos'
     },
   ];
-  constructor() { }
+  constructor(private localStorage: LocalstorageService) {
+    
+    this.usuario = this.localStorage.cargarUltimoLogueo()[0];
+   }
 
   ngOnInit() {}
 
