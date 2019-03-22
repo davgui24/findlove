@@ -11,7 +11,7 @@
 
 <ion-content padding>
 
-    <div class="wrapper">
+    <!-- <div class="wrapper">
 
         <div class="box red">
             <h4>101</h4>
@@ -95,15 +95,33 @@
             <h4>121</h4>
         </div>
 
-    </div>
-
+    </div> -->
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col *ngFor="let habita of habita">
+                <ion-button *ngIf="[habita.state]==1" color="success">{{habita.name}}</ion-button>
+                <ion-button *ngIf="[habita.state]==2" color="danger">{{habita.name}}</ion-button>
+                <ion-button *ngIf="[habita.state]==3" color="warning">{{habita.name}}</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
-
 <ion-content padding>
-    <ion-list>
-        <ion-item>Total Ocupadas: 4</ion-item>
-        <ion-item>Total Disponibles: 12</ion-item>
 
+    <ion-button expand="full" color="success">
+        Total Disponibles: 6
+    </ion-button>
+
+    <ion-button expand="block" color="danger">
+        Total Ocupadas: 4
+    </ion-button>
+
+    <ion-button expand="block" color="warning">
+        Total Pendientes: 2
+    </ion-button>
+
+    <!-- <ion-item>Total Ocupadas: 4</ion-item>
+        <ion-item>Total Pendientes: 2</ion-item>
         <ion-item>
             <ion-icon class="box green" name="square"></ion-icon>
             <ion-label>Disponible</ion-label><br>
@@ -115,8 +133,5 @@
         <ion-item>
             <ion-icon class="box red" name="square"></ion-icon>
             <ion-label>No Disponible</ion-label>
-        </ion-item>
-
-    </ion-list>
-
+        </ion-item> -->
 </ion-content>
