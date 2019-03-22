@@ -1,7 +1,15 @@
 <ion-menu side="start" menuId="first" contentId="menu-content">
     <ion-header>
         <ion-toolbar color="primary">
-            <ion-title>MENU {{usuario.rol}}</ion-title>
+
+            <ion-avatar item-start>
+                <img src="{{avt}}">
+            </ion-avatar>
+            <div>
+                <ion-title> <small>{{usuario.rol}}</small> </ion-title>
+            </div>
+
+
         </ion-toolbar>
     </ion-header>
     <ion-content>
