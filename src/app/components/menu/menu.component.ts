@@ -29,9 +29,6 @@ export class MenuComponent implements OnInit {
     
     this.usuario = this.localStorage.cargarUltimoLogueo()[0];
 
-  
-
-    
 switch (this.usuario.avatar) {
 
   case 'av-1.png' :

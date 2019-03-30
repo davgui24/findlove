@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HabitacionesPage } from './habitaciones.page';
+import { HabitacionConfigPage } from '../habitacion-config/habitacion-config.page';
+import { HabitacionConfigPageModule } from '../habitacion-config/habitacion-config.module';
 
 const routes: Routes = [
   {
@@ -15,10 +17,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents:[HabitacionConfigPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    HabitacionConfigPageModule,
     RouterModule.forChild(routes)
   ],
   declarations: [HabitacionesPage]

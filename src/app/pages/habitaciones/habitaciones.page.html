@@ -99,9 +99,11 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col *ngFor="let habita of habita">
-                <ion-button *ngIf="[habita.state]==1" color="success">{{habita.name}}</ion-button>
-                <ion-button *ngIf="[habita.state]==2" color="danger">{{habita.name}}</ion-button>
-                <ion-button *ngIf="[habita.state]==3" color="warning">{{habita.name}}</ion-button>
+                <!-- <ion-button *ngIf="nom != habita.name" color="success" (click)="habitacion(habita)">{{habita.name}}</ion-button>
+                <ion-button *ngIf="nom == habita.name" [color]="color" (click)="habitacion(habita)">{{habita.name}}</ion-button> -->
+                <ion-button *ngIf="[habita.state]==1" color="success" (click)="habitacion(habita)">{{habita.name}}</ion-button>
+                <ion-button *ngIf="[habita.state]==2" color="warning" (click)="habitacion(habita)">{{habita.name}}</ion-button>
+                <ion-button *ngIf="[habita.state]==3" color="danger" (click)="habitacion(habita)">{{habita.name}}</ion-button>
             </ion-col>
         </ion-row>
     </ion-grid>

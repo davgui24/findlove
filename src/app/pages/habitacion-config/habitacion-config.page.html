@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title text-capitalize>{{nombre}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form>
+
+        <ion-list *ngFor="let sel of select">
+
+            <input type="radio" value="{{sel.color}}"  (change)="radioSel(sel.color)">
+            <i>{{sel.nombre}}</i>
+
+            <!--   <ion-radio-group>
+                 <ion-list-header>
+      Estado De La Habitacion
+    </ion-list-header> -->
+
+            <!-- <ion-item>
+                    <ion-label>DISPONIBLE</ion-label>
+                    <ion-radio name="success"  value="" checked="true"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>PENDIENTE</ion-label>
+                    <ion-radio name="warning" value="warning"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>OCUPADA</ion-label>
+                    <ion-radio name="danger" value="danger"></ion-radio>
+                </ion-item>
+-->
+        </ion-list>
+
+        <!-- <ion-button expand="full" type="submit" class="btn btn-primary">Aplicar</ion-button> -->
+    </form>
+
+
+
+</ion-content>
